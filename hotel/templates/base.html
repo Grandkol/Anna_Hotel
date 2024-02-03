@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="ru">
+    <head>
+	<link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/magnefic-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet"  href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <title>
+            {% block title %}
+                Anna Hotel
+            {% endblock %}
+        </title>
+
+    </head>
+
+    <body>
+        <header>
+            {% include 'includes/header.html' %}
+        </header>
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        <footer>
+            {% include 'includes/footer.html' %}
+        </footer>
+
+        <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"  %></script>
+        <script src= "{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+        <script src="vendors/magnefic-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	    <script src="vendors/easing.min.js"></script>
+        <script src="vendors/superfish.min.js"></script>
+        <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
+        <script src="vendors/jquery.ajaxchimp.min.js"></script>
+        <script src="vendors/mail-script.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
