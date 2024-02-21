@@ -407,12 +407,12 @@ button {
         margin-right: 50px; } }
 
 .footer-area {
-  padding: 120px 0px 120px;
+  padding: 50px 0px 50px;
   background: #0b1a2a; }
   @media (max-width: 991px) {
     .footer-area {
       background: #222222;
-      padding: 60px 0px; } }
+      padding: 5px 0px; } }
   @media (max-width: 991px) {
     .footer-area .single-footer-widget {
       margin-bottom: 30px; } }
@@ -820,7 +820,7 @@ button {
 /*=================== news section end ====================*/
 /*=================== video section start ====================*/
 .video-area {
-  background: url("../img/home/video-bg.png") left center no-repeat;
+  background: url("../img/home/Hotel-bg.jpg") left center no-repeat;
   background-size: cover;
   padding: 50px 10px;
   position: relative;
@@ -875,11 +875,13 @@ button {
   .card-special__title {
     margin: 0;
     font-weight: 400;
-    transition: all .4s ease; }
+    transition: all .4s ease;
+    font-size: 15pt}
   .card-special .card-body {
     padding: 0; }
     .card-special .card-body p {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+    font-size: 12pt}
   .card-special:hover {
     background: #cca772;
     color: #fff; }

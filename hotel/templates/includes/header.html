@@ -5,7 +5,7 @@
       <div class="container">
         <div class="d-flex align-items-center">
           <div id="logo">
-            <a href="index.html"><img src="static/img/Logo-anna.jpg" width="70" height="70" alt="" title='' /></a>
+            <a href="{% url 'index' %}"><img src="{% static 'img/Logo-anna.jpg' %}" width="70" height="70" alt="" title='' /></a>
           </div>
           <div class="ml-auto d-none d-md-block d-md-flex">
             <div class="media header-top-info">
@@ -42,19 +42,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Главная</a></li>
-              <li class="nav-item"><a class="nav-link" href="../about.html">Об Отеле</a></li>
+              <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">Об Отеле</a></li>
 <!--              <li class="nav-item"><a class="nav-link" href="../properties.html">Properties</a></li>-->
-              <li class="nav-item"><a class="nav-link" href="../gallery.html">Галерея</a></li>
-<!--              <li class="nav-item submenu dropdown">-->
-<!--                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-<!--                aria-expanded="false">Blog</a>-->
-<!--                <ul class="dropdown-menu">-->
-<!--                  <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>-->
-<!--                  <li class="nav-item"><a class="nav-link" href="../blog-single.html">Blog Details</a></li>-->
-<!--                </ul>-->
-<!--              </li>-->
-              <li class="nav-item"><a class="nav-link" href="../contact.html">Контакты</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Галерея</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'contacts' %}">Контакты</a></li>
             </ul>
           </div>
 
