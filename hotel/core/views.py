@@ -6,10 +6,10 @@ from email.mime.multipart import MIMEMultipart
 
 #ТЕЛЕГРАМ ИНФА БОТ
 bot = telebot.TeleBot(token='6969064571:AAHk6Fknal4LU84NeZdWP0XscLh1RZowQUI')
-# user_id = '1194456882' #МАМА
-# user_id = '889050360' #ИЛИАН
-# user_id = '5421958941' #ПАПА
-user_id = '277237246' #ЭЛИНА
+user_id = '1194456882' #МАМА
+user_id2 = '889050360' #ИЛИАН
+user_id3 = '5421958941' #ПАПА
+# user_id = '277237246' #ЭЛИНА
 
 #ПОЧТА ИНФА
 sender_email = "ilian10@mail.ru"
@@ -41,6 +41,8 @@ def index(request):
                    f'Дата отъезда: *{departure}*\.  ' 
                    f'Пожалуйста отправьте ответ на запрос по *номеру телефона*\.')
         bot.send_message(chat_id=user_id, text=message_text, parse_mode='MarkdownV2')
+        bot.send_message(chat_id=user_id2, text=message_text, parse_mode='MarkdownV2')
+        bot.send_message(chat_id=user_id3, text=message_text, parse_mode='MarkdownV2')
         #ОТПРАВКА ПО ПОЧТЕ
         message = MIMEMultipart()
         message["From"] = sender_email
