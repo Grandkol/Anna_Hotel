@@ -516,6 +516,7 @@ button {
 .section-intro__style {
   margin-bottom: 14px; }
 
+
 /*=================== section-intro end ====================*/
 /*=================== home banner start ====================*/
 .home-banner {
@@ -648,6 +649,7 @@ button {
   @media (min-width: 991px) {
     .welcome-content {
       padding-left: 60px; } }
+
 
 /*=================== welcome section end ====================*/
 /*=================== explore section start ====================*/
@@ -1891,3 +1893,120 @@ button {
     color: #777; }
 
 /*============ End Blog Single Styles  =============*/
+/*============ Carousel  =============*/
+
+
+
+
+.carousel{
+  position: relative;
+
+}
+
+.carousel ul{
+  width: 350px;
+  height: 550px;
+  list-style: none;
+}
+
+/*1 slude*/
+
+.slide{
+    position: absolute;
+    opacity: 1;
+    inset: 0;
+}
+
+.slide[data-active]{
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  display: block;
+  width:400px;
+  height: 550px;
+  object-fit: cover;
+  /*object-position: center;*/
+  border-radius: 15px
+}
+
+/*2 slide*/
+.slide2{
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+}
+
+.slide2[data-active]{
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide2 img {
+  display: block;
+  width:400px;
+  height: 550px;
+  object-fit: cover;
+  /*object-position: center;*/
+  border-radius: 15px
+}
+
+/*1 button*/
+.carousel-button{
+  position: absolute;
+  z-index: 2;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  top: 41%;
+  color: #303030;
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+   color: #cca772;
+
+}
+
+.carousel-button.next{
+  right: -1.1rem;
+}
+
+.carousel-button.prev{
+  left: -3.8rem;
+}
+
+
+/*2 button*/
+.carousel-button2{
+  position: absolute;
+  z-index: 2;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  top: 41%;
+  color: #303030;
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
+
+.carousel-button2:hover,
+.carousel-button2:focus {
+   color: #cca772;
+
+}
+
+.carousel-button2.next{
+  right: -1.1rem;
+}
+
+.carousel-button2.prev{
+  left: -3.8rem;
+}
+
+/*============ End of Carousel  =============*/

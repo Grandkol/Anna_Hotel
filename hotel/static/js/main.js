@@ -132,3 +132,42 @@ $(function() {
   
 });
 
+
+
+
+/*============ Carousel  =============*/
+
+const handleImageChange = (offset) =>{
+    const activeSlide = document.querySelector("[data-active]")
+    const slides = [...document.querySelectorAll(".slide")]
+    const currentIndex = slides.indexOf(activeSlide)
+    let newIndex = currentIndex + offset;
+
+    if(newIndex < 0) newIndex = slides.length - 1
+    if(newIndex >= slides.length) newIndex = newIndex = 0
+
+    slides[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active
+}
+
+const handleImageChange2 = (offset) =>{
+    const activeSlide = document.querySelector(".slide2[data-active]")
+    const slides = [...document.querySelectorAll(".slide2")]
+    const currentIndex = slides.indexOf(activeSlide)
+    let newIndex = currentIndex + offset;
+
+    if(newIndex < 0) newIndex = slides.length - 1
+    if(newIndex >= slides.length) newIndex = newIndex = 0
+
+    slides[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active
+}
+
+
+const onNext = () => handleImageChange(1)
+const onPrev = () => handleImageChange(-1)
+
+const onNext2 = () => handleImageChange2(1)
+const onPrev2 = () => handleImageChange2(-1)
+
+/*============ End of Carousel  =============*/

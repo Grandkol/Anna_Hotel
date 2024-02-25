@@ -21,84 +21,68 @@
   
 
     <!-- ================ start banner form ================= --> 
-    <form class="form-search form-search-position">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 gutters-19">
-            <div class="form-group">
-              <input class="form-control" type="text" placeholder="Введите дополнительную информацию..." required>
-            </div>
-          </div>
-          <div class="col-lg-6 gutters-19">
-            <div class="row">
-              <div class="col-sm">
-                <div class="form-group">
-                  <div class="form-select-custom">
-                    <select name="" id="">
-                      <option value="" disabled selected>Прибытие</option>
-                      <option value="14:00">14:00</option>
-                      <option value="16:00">16:00</option>
-                    </select>
+    <form class="form-search form-search-position" method="POST">
+        {% csrf_token %}
+          <div class="container">
+            <div class="row" style="margin-left: -20px; position: relative" >
+                <div class="col-sm">
+                    <div class="form-group">
+                        <a>Дата прибытия</a>
+                      <div class="form-select-custom">
+                        <input class="form-control" type="date" name="arrival">
+                      </div>
+                    </div>
                   </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <a>Дата отбытия</a>
+                          <div class="form-select-custom">
+                            <input class="form-control" type="date" name="departure">
+                          </div>
+                        </div>
+                    </div>
+              <div class="col-lg-6 gutters-19">
+                <div class="row">
+                    <div class="col-sm gutters-19">
+                        <div class="form-group">
+                            <a>Количество гостей</a>
+                              <div class="form-select-custom">
+                                    <select name="guests">
+                                      <option value="" disabled selected></option>
+                                      <option value="2 гостя">2 гостя </option>
+                                      <option value="3 гостя">3 гостя</option>
+                                        <option value="4 гостя">4 гостя</option>
+                                    </select>
+                              </div>
+                        </div>
+                    </div>
                 </div>
               </div>
+            </div>
+            <div class="row" >
               <div class="col-sm gutters-19">
+                    <div class="form-group">
+                        <a>ФИО</a>
+                      <div class="form-select-custom">
+                        <input class="form-control" type="text" name="alias" placeholder="Матвеев Матвей Матвеевич">
+                      </div>
+                    </div>
+              </div>
+                <div class="col-sm gutters-19">
+                    <div class="form-group">
+                        <a>Номер телефона</a>
+                      <div class="form-select-custom">
+                        <input class="form-control" type="text" name="phone" placeholder="8 916 856 32 45">
+                      </div>
+                    </div>
+              </div>
+              <div class="col-lg-4 gutters-19" style="position: relative; margin-top: 25px">
                 <div class="form-group">
-                  <div class="form-select-custom">
-                    <select name="" id="">
-                      <option value="" disabled selected>Количество номеров</option>
-                      <option value="1 номер">1 номер</option>
-                      <option value="1 номера">2 номера</option>
-                    </select>
-                  </div>
+                  <button class="button button-form" type="submit">Отправить запрос</button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm gutters-19">
-            <div class="form-group">
-              <div class="form-select-custom">
-                    <select name="" id="">
-                      <option value="" disabled selected>Количество спальных мест</option>
-                      <option value="2-х местный">2-х местный</option>
-                      <option value="3-х местный">3-х местный</option>
-                    </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm gutters-19">
-            <div class="form-group">
-              <div class="form-select-custom">
-                <select name="" id="">
-                  <option value="" disabled selected>Количество взрослых</option>
-                  <option value="1">1 Взрослый</option>
-                  <option value="2">2 Взрослых</option>
-                    <option value="3 ">3 Взрослых</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm gutters-19">
-            <div class="form-group">
-              <div class="form-select-custom">
-                <select name="" id="">
-                  <option value="" disabled selected>Количество детей</option>
-                  <option value="1">1 ребенок </option>
-                  <option value="2">2 детей </option>
-                    <option value="3">3 детей </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 gutters-19">
-            <div class="form-group">
-              <button class="button button-form" type="submit">Отправить запрос</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </form>
     <!-- ================ end banner form ================= --> 
 
@@ -155,10 +139,10 @@
                 <img class="card-img" src="{% static 'img/home/2bed.jpeg' %}" height="490" alt="">
               </div>
               <div class="card-body">
-                <h3 class="card-explore__price">От 3000 Р <sub>/ За ночь</sub></h3>
+                <h3 class="card-explore__price">От 3000 Р <sub>/ ночь</sub></h3>
                 <h4 class="card-explore__title"><a href="#">2х Местный Номер</a></h4>
                 <p>В номере: кондиционер, телевизор, холодильник, набор для чая и кофе, фен. На этаже микроволновая печь, чайник, гладильная доска и утюг.</p>
-                <a class="card-explore__link" href="#">Book Now <i class="ti-arrow-right"></i></a>
+                <a class="card-explore__link" href="#">Забронировать <i class="ti-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -169,10 +153,10 @@
                 <img class="card-img" src="{% static 'img/home/3bed.jpeg' %}" height="500"  alt="">
               </div>
               <div class="card-body">
-                <h3 class="card-explore__price">От 4000 Р <sub>/ За ночь</sub></h3>
+                <h3 class="card-explore__price">От 4000 Р <sub>/ ночь</sub></h3>
                 <h4 class="card-explore__title"><a href="#">3х Местный Номер</a></h4>
-                <p>Тот же 2-х местный, но больше) </p>
-                <a class="card-explore__link" href="#">Book Now <i class="ti-arrow-right"></i></a>
+                <p>В номере: кондиционер, телевизор, холодильник, набор для чая и кофе, фен. На этаже микроволновая печь, чайник, гладильная доска и утюг.</p>
+                <a class="card-explore__link" href="#">Забронировать <i class="ti-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -198,17 +182,17 @@
 
 
     <!-- ================ video section start ================= --> 
-    <section class="video-area">
-      <div class="container">
-        <div class="row justify-content-center align-items-center flex-column text-center">
-          <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=h7eSt40aaIY">
-            <span></span>
-          </a>
-          <h3>Отель "Анна"</h3>
-          <p>Видео о нашем отеле</p>
-        </div>
-      </div>  
-    </section>
+{#    <section class="video-area">#}
+{#      <div class="container">#}
+{#        <div class="row justify-content-center align-items-center flex-column text-center">#}
+{#          <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=h7eSt40aaIY">#}
+{#            <span></span>#}
+{#          </a>#}
+{#          <h3>Отель "Анна"</h3>#}
+{#          <p>Видео о нашем отеле</p>#}
+{#        </div>#}
+{#      </div>  #}
+{#    </section>#}
     <!-- ================ video section end ================= --> 
 
     <!-- ================ special section start ================= -->
@@ -258,7 +242,7 @@
               <div class="media align-items-center mb-1">
                 <span class="card-special__icon"><i class="ti-car"></i></span>
                 <div class="media-body">
-                  <h4 class="card-special__title">Транспортная стоянка</h4>
+                  <h4 class="card-special__title">Парковка</h4>
                 </div>
               </div>
               <div class="card-body">
