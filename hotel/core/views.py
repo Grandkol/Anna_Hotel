@@ -27,7 +27,7 @@ def index(request):
         arrival = request.POST.get('arrival')
         arrival = arrival.replace("-", "\.")
         departure = request.POST.get('departure')
-        departure = arrival.replace("-", "\.")
+        departure = departure.replace("-", "\.")
         guests = request.POST.get('guests')
         alias = request.POST.get('alias')
         phone = request.POST.get('phone')
