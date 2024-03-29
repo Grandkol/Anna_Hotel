@@ -23,26 +23,29 @@ def index(request):
     if request.method == "POST":
         print(request.POST)
         arrival = request.POST.get("arrival")
-        arrival = arrival.replace("-", "\.")
+        arrival = arrival.replace("-", r"\.")
         departure = request.POST.get("departure")
-        departure = departure.replace("-", "\.")
+        departure = departure.replace("-", r"\.")
         guests = request.POST.get("guests")
         alias = request.POST.get("alias")
         phone = request.POST.get("phone")
 
         # ОТПРАВКА В ТГ
         message_text = (
-            f"*У вас новое бронирование\!* "
-            f"ФИО: {alias}\.  "
-            f"Телефон: *{phone}*\.  "
-            f"Количество гостей: *{guests}*\.  "
-            f"Дата заезда: *{arrival}*\.  "
-            f"Дата отъезда: *{departure}*\.  "
-            f"Пожалуйста отправьте ответ на запрос по *номеру телефона*\."
+            fr"*У вас новое бронирование\!* "
+            fr"ФИО: {alias}\.  "
+            fr"Телефон: *{phone}*\.  "
+            fr"Количество гостей: *{guests}*\.  "
+            fr"Дата заезда: *{arrival}*\.  "
+            fr"Дата отъезда: *{departure}*\.  "
+            fr"Пожалуйста отправьте ответ на запрос по *номеру телефона*\."
         )
-        bot.send_message(chat_id=user_id, text=message_text, parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id2, text=message_text, parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id3, text=message_text, parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id, text=message_text,
+                         parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id2, text=message_text,
+                         parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id3, text=message_text,
+                         parse_mode="MarkdownV2")
         # ОТПРАВКА ПО ПОЧТЕ
         message = MIMEMultipart()
         message["From"] = sender_email
