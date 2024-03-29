@@ -4,9 +4,7 @@ version: '3.3'
 services:
 
   backend:
-    build:
-      context: hotel
-      dockerfile: ./Dockerfile
+    image: grandkol/anna_hotel_backend
     env_file:
     - .env
     volumes:
@@ -15,7 +13,7 @@ services:
 
 
   nginx:
-    build: ./gateway/
+    image: grandkol/anna_hotel_gateway
     ports:
       - "8000:80"
     volumes:
