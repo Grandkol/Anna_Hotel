@@ -41,9 +41,12 @@ def index(request):
             rf"Дата отъезда: *{departure}*\.  "
             rf"Пожалуйста отправьте ответ на запрос по *номеру телефона*\."
         )
-        bot.send_message(chat_id=user_id, text=message_text, parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id2, text=message_text, parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id3, text=message_text, parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id, text=message_text,
+                         parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id2, text=message_text,
+                         parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id3, text=message_text,
+                         parse_mode="MarkdownV2")
         # ОТПРАВКА ПО ПОЧТЕ
         message = MIMEMultipart()
         message["From"] = sender_email
