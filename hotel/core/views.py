@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 import telebot
 import smtplib
 from email.mime.text import MIMEText
@@ -32,20 +33,17 @@ def index(request):
 
         # ОТПРАВКА В ТГ
         message_text = (
-            fr"*У вас новое бронирование\!* "
-            fr"ФИО: {alias}\.  "
-            fr"Телефон: *{phone}*\.  "
-            fr"Количество гостей: *{guests}*\.  "
-            fr"Дата заезда: *{arrival}*\.  "
-            fr"Дата отъезда: *{departure}*\.  "
-            fr"Пожалуйста отправьте ответ на запрос по *номеру телефона*\."
+            rf"*У вас новое бронирование\!* "
+            rf"ФИО: {alias}\.  "
+            rf"Телефон: *{phone}*\.  "
+            rf"Количество гостей: *{guests}*\.  "
+            rf"Дата заезда: *{arrival}*\.  "
+            rf"Дата отъезда: *{departure}*\.  "
+            rf"Пожалуйста отправьте ответ на запрос по *номеру телефона*\."
         )
-        bot.send_message(chat_id=user_id, text=message_text,
-                         parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id2, text=message_text,
-                         parse_mode="MarkdownV2")
-        bot.send_message(chat_id=user_id3, text=message_text,
-                         parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id, text=message_text, parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id2, text=message_text, parse_mode="MarkdownV2")
+        bot.send_message(chat_id=user_id3, text=message_text, parse_mode="MarkdownV2")
         # ОТПРАВКА ПО ПОЧТЕ
         message = MIMEMultipart()
         message["From"] = sender_email
