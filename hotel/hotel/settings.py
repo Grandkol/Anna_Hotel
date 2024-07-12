@@ -16,6 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['130.255.170.79', '127.0.0.1', 'localhost', 'anna-hotel.com']
 
+CSRF_TRUSTED_ORIGINS = ['https://anna-hotel.com']
 
 # Application definition
 
