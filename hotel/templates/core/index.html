@@ -21,7 +21,7 @@
   
 
     <!-- ================ start banner form ================= --> 
-    <form class="form-search form-search-position" method="POST">
+    <form class="form-search form-search-position" method="POST" id="submitForm">
         {% csrf_token %}
           <div class="container">
             <div class="row" style="margin-left: -20px; position: relative" >
@@ -79,6 +79,12 @@
               <div class="col-lg-4 gutters-19" style="position: relative; margin-top: 25px">
                 <div class="form-group">
                   <button class="button button-form" type="submit">Отправить запрос</button>
+                    <div id="popup" class="popup">
+                      <div class="popup-content">
+                        <p>Спасибо за заявку!</p>
+                          <p>Ожидайте ответа.</p>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -160,26 +166,24 @@
               </div>
             </div>
           </div>
-
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">#}
-{#            <div class="card card-explore">#}
-{#              <div class="card-explore__img">#}
-{#                <img class="card-img" src="img/home/explore3.png" alt="">#}
-{#              </div>#}
-{#              <div class="card-body">#}
-{#                <h3 class="card-explore__price">$190.00 <sub>/ Per Night</sub></h3>#}
-{#                <h4 class="card-explore__title"><a href="#">Family Room</a></h4>#}
-{#                <p>Beginning fourth dominion creeping god was. Beginning, which fly yieldi dry beast moved blessed </p>#}
-{#                <a class="card-explore__link" href="#">Book Now <i class="ti-arrow-right"></i></a>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
         </div>
       </div>
     </section>
     <!-- ================ Explore section end ================= --> 
 
-
+ <section class="calculus">
+      <div class="container">
+            <div id="calculator" >
+                <h2>Калькулятор стоимости номера в отеле</h2>
+                <label for="checkin-date">Дата заезда:</label>
+                <input type="date" id="checkin-date">
+                <label for="checkout-date">Дата отъезда:</label>
+                <input type="date" id="checkout-date">
+                <button class="button button-form" onclick="calculateCost()">Рассчитать стоимость</button>
+                <div id="result"></div>
+            </div>
+      </div>
+ </section>
 
     <!-- ================ video section start ================= --> 
 {#    <section class="video-area">#}
