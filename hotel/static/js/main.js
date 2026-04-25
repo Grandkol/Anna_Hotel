@@ -171,3 +171,73 @@ const onNext2 = () => handleImageChange2(1)
 const onPrev2 = () => handleImageChange2(-1)
 
 /*============ End of Carousel  =============*/
+
+/*============ Start of POPUP  =============*/
+
+document.getElementById('submitForm').addEventListener('submit', function(e) {
+  // e.preventDefault(); // Предотвращаем стандартное поведение формы, чтобы страница не перезагружалась
+
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex'; // Используем flex, согласно новым стилям
+  popup.classList.add('show');
+
+  // Через 3 секунды начинаем плавно скрывать поп-ап
+  setTimeout(function() {
+    popup.classList.remove('show');
+    // Устанавливаем display в 'none' после завершения анимации исчезновения
+    setTimeout(function() {
+      popup.style.display = 'none';
+    }, 500); // Соответствует продолжительности анимации
+  }, 2500); // Время видимости поп-апа
+});
+
+/*============ End of POPUP  =============*/
+
+function calculateCost() {
+    // month index (0-based): 4=май, 5=июнь, 6=июль, 7=август, 8=сентябрь, 9=октябрь
+    var rates = {
+        2: {4: 2500, 5: 4500, 6: 6000, 7: 6500, 8: 6000, 9: 4000},
+        3: {4: 3000, 5: 5000, 6: 6500, 7: 8000, 8: 7500, 9: 5000}
+    };
+
+    var roomType = parseInt(document.querySelector('input[name="calc-room"]:checked').value);
+    var checkinVal = document.getElementById('calc-checkin').value;
+    var checkoutVal = document.getElementById('calc-checkout').value;
+    var resultEl = document.getElementById('calc-result');
+
+    if (!checkinVal || !checkoutVal) {
+        resultEl.innerHTML = '<p class="calc-error">Пожалуйста, выберите даты заезда и отъезда.</p>';
+        return;
+    }
+
+    var checkin = new Date(checkinVal);
+    var checkout = new Date(checkoutVal);
+
+    if (checkout <= checkin) {
+        resultEl.innerHTML = '<p class="calc-error">Дата отъезда должна быть позже даты заезда.</p>';
+        return;
+    }
+
+    var total = 0;
+    var current = new Date(checkin);
+
+    while (current < checkout) {
+        var m = current.getMonth();
+        if (rates[roomType][m] === undefined) {
+            resultEl.innerHTML = '<p class="calc-error">Отель не работает в выбранный период. Бронирование доступно с мая по октябрь.</p>';
+            return;
+        }
+        total += rates[roomType][m];
+        current.setDate(current.getDate() + 1);
+    }
+
+    var nights = Math.round((checkout - checkin) / 86400000);
+    var roomName = roomType === 2 ? '2х местный' : '3х местный';
+
+    resultEl.innerHTML =
+        '<div class="calc-success">' +
+        '<p><strong>Номер:</strong> ' + roomName + '</p>' +
+        '<p><strong>Количество ночей:</strong> ' + nights + '</p>' +
+        '<p class="calc-total"><strong>Итого: ' + total.toLocaleString('ru-RU') + ' ₽</strong></p>' +
+        '</div>';
+}

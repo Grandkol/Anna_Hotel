@@ -165,19 +165,51 @@
     </section>
     <!-- ================ Explore section end ================= --> 
 
-{# <section class="calculus">#}
-{#      <div class="container">#}
-{#            <div id="calculator" >#}
-{#                <h2>Калькулятор стоимости номера в отеле</h2>#}
-{#                <label for="checkin-date">Дата заезда:</label>#}
-{#                <input type="date" id="checkin-date">#}
-{#                <label for="checkout-date">Дата отъезда:</label>#}
-{#                <input type="date" id="checkout-date">#}
-{#                <button class="button button-form" onclick="calculateCost()">Рассчитать стоимость</button>#}
-{#                <div id="result"></div>#}
-{#            </div>#}
-{#      </div>#}
-{# </section>#}
+    <!-- ================ calculator section start ================= -->
+    <section class="section-padding bg-porcelain">
+      <div class="container">
+        <div class="section-intro text-center pb-80px">
+          <div class="section-intro__style">
+            <img src="img/home/bed-icon.png" alt="">
+          </div>
+          <h2>Рассчитать стоимость</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card calculator-card p-4 p-md-5">
+              <div class="row">
+                <div class="col-12 mb-4">
+                  <p class="calc-label">Тип номера</p>
+                  <div class="calc-room-selector">
+                    <label class="calc-room-option">
+                      <input type="radio" name="calc-room" value="2" checked>
+                      <span>2х Местный</span>
+                    </label>
+                    <label class="calc-room-option">
+                      <input type="radio" name="calc-room" value="3">
+                      <span>3х Местный</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-4">
+                  <p class="calc-label">Дата заезда</p>
+                  <input type="date" id="calc-checkin" class="form-control calc-date-input">
+                </div>
+                <div class="col-sm-6 mb-4">
+                  <p class="calc-label">Дата отъезда</p>
+                  <input type="date" id="calc-checkout" class="form-control calc-date-input">
+                </div>
+              </div>
+              <div class="text-center">
+                <button class="button button--active" onclick="calculateCost()">Рассчитать</button>
+              </div>
+              <div id="calc-result"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================ calculator section end ================= -->
 
     <!-- ================ video section start ================= --> 
 {#    <section class="video-area">#}
