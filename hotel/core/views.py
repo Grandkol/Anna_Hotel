@@ -8,7 +8,6 @@ sender_email = "ilian10@mail.ru"
 sender_password = "p912vrNYV1JQMuaKZxwz"
 receiver_emails = [
     "ilian.khoroshikh@gmail.com",
-    "igorimaxigori@rambler.ru",
     "agdalina2007@rambler.ru",
 ]
 subject = "Бронь номера"
