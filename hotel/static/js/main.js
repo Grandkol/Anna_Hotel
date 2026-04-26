@@ -175,20 +175,27 @@ const onPrev2 = () => handleImageChange2(-1)
 /*============ Start of POPUP  =============*/
 
 document.getElementById('submitForm').addEventListener('submit', function(e) {
-  // e.preventDefault(); // Предотвращаем стандартное поведение формы, чтобы страница не перезагружалась
+  e.preventDefault();
+  var form = this;
+  var popup = document.getElementById('popup');
+  var overlay = document.getElementById('booking-overlay');
 
-  const popup = document.getElementById('popup');
-  popup.style.display = 'flex'; // Используем flex, согласно новым стилям
-  popup.classList.add('show');
-
-  // Через 3 секунды начинаем плавно скрывать поп-ап
+  overlay.style.display = 'block';
+  popup.style.display = 'block';
   setTimeout(function() {
+    overlay.classList.add('show');
+    popup.classList.add('show');
+  }, 10);
+
+  setTimeout(function() {
+    overlay.classList.remove('show');
     popup.classList.remove('show');
-    // Устанавливаем display в 'none' после завершения анимации исчезновения
     setTimeout(function() {
+      overlay.style.display = 'none';
       popup.style.display = 'none';
-    }, 500); // Соответствует продолжительности анимации
-  }, 2500); // Время видимости поп-апа
+      form.submit();
+    }, 400);
+  }, 3000);
 });
 
 /*============ End of POPUP  =============*/

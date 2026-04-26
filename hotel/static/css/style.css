@@ -2011,38 +2011,65 @@ button {
 
 /*============ End of Carousel  =============*/
 
+.booking-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease; }
+  .booking-overlay.show {
+    opacity: 1; }
+
 .popup {
-  display: none; /* Изначально скрыт */
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  width: 80%;
-  max-width: 400px;
+  background: #fff;
+  padding: 45px 40px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 460px;
   box-sizing: border-box;
   z-index: 1000;
   opacity: 0;
-  visibility: hidden; /* Изначально невидим */
-  transition: opacity 0.5s, visibility 0.5s;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  text-align: center;
+  border-radius: 2px; }
+  .popup.show {
+    opacity: 1;
+    visibility: visible; }
+
+.popup-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #cca772;
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center; /* Центрирование текста */
-  flex-direction: column;
-}
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 26px;
+  color: #fff; }
 
-.popup.show {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
+.popup-title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #222222;
+  margin-bottom: 14px; }
 
-.popup-content {
-  font-size: 20px;
-}
+.popup-text {
+  color: #777777;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0; }
 /*=================== calculator section start ====================*/
 .calculator-card {
   border: none;

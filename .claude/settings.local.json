@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/)",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(docker-credential-desktop list *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(docker build *)",
+      "Bash(curl -s http://127.0.0.1:8000/)"
+    ]
+  }
+}
