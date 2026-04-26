@@ -6,7 +6,11 @@ from email.mime.multipart import MIMEMultipart
 
 sender_email = "ilian10@mail.ru"
 sender_password = "p912vrNYV1JQMuaKZxwz"
-receiver_email = "ilian.khoroshikh@gmail.com"
+receiver_emails = [
+    "ilian.khoroshikh@gmail.com",
+    "igorimaxigori@rambler.ru",
+    "agdalina2007@rambler.ru",
+]
 subject = "Бронь номера"
 
 
@@ -21,7 +25,7 @@ def index(request):
 
         message = MIMEMultipart()
         message["From"] = sender_email
-        message["To"] = receiver_email
+        message["To"] = ", ".join(receiver_emails)
         message["Subject"] = subject
 
         message_text = (
@@ -38,7 +42,7 @@ def index(request):
         with smtplib.SMTP("smtp.mail.ru", 587) as server:
             server.starttls()
             server.login(sender_email, sender_password)
-            server.sendmail(sender_email, receiver_email, message.as_string())
+            server.sendmail(sender_email, receiver_emails, message.as_string())
             server.quit()
 
     return render(request, "core/index.html")

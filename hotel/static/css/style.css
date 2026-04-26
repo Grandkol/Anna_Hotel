@@ -2081,11 +2081,16 @@ button {
   font-size: 15px;
   color: #555;
   margin-bottom: 0; }
-  .calc-room-option input[type="radio"] {
+  .calc-room-option input[type="radio"],
+  .calc-room-option input[type="checkbox"] {
     accent-color: #cca772;
     width: 16px;
     height: 16px;
     cursor: pointer; }
+
+.calc-extra-price {
+  font-size: 13px;
+  color: #999; }
 
 #calc-result {
   margin-top: 28px;

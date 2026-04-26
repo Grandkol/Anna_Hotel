@@ -194,15 +194,32 @@ document.getElementById('submitForm').addEventListener('submit', function(e) {
 /*============ End of POPUP  =============*/
 
 function calculateCost() {
-    // month index (0-based): 4=май, 5=июнь, 6=июль, 7=август, 8=сентябрь, 9=октябрь
-    var rates = {
-        2: {4: 2500, 5: 4500, 6: 6000, 7: 6500, 8: 6000, 9: 4000},
-        3: {4: 3000, 5: 5000, 6: 6500, 7: 8000, 8: 7500, 9: 5000}
-    };
+    // Periods: [startMD, endMD, rate2, rate3]
+    // MD = getMonth()*100 + getDate()  (getMonth is 0-indexed: Apr=3, May=4, Jun=5, Jul=6, Aug=7, Sep=8, Oct=9)
+    var periods = [
+        [301, 431, 3000, 4000],   // Apr 1 – May 31
+        [501, 514, 4000, 5000],   // Jun 1 – Jun 14
+        [515, 529, 5000, 6000],   // Jun 15 – Jun 29
+        [530, 630, 6000, 7500],   // Jun 30 – Jul 30
+        [631, 730, 6500, 8000],   // Jul 31 – Aug 30
+        [731, 829, 6000, 7500],   // Aug 31 – Sep 29
+        [830, 930, 4000, 5500],   // Sep 30 – Oct 30
+    ];
+
+    function rateForNight(date, roomType) {
+        var md = date.getMonth() * 100 + date.getDate();
+        for (var i = 0; i < periods.length; i++) {
+            if (md >= periods[i][0] && md <= periods[i][1]) {
+                return roomType === 2 ? periods[i][2] : periods[i][3];
+            }
+        }
+        return null;
+    }
 
     var roomType = parseInt(document.querySelector('input[name="calc-room"]:checked').value);
     var checkinVal = document.getElementById('calc-checkin').value;
     var checkoutVal = document.getElementById('calc-checkout').value;
+    var extraBed = document.getElementById('calc-extra-bed').checked;
     var resultEl = document.getElementById('calc-result');
 
     if (!checkinVal || !checkoutVal) {
@@ -222,21 +239,22 @@ function calculateCost() {
     var current = new Date(checkin);
 
     while (current < checkout) {
-        var m = current.getMonth();
-        if (rates[roomType][m] === undefined) {
-            resultEl.innerHTML = '<p class="calc-error">Отель не работает в выбранный период. Бронирование доступно с мая по октябрь.</p>';
+        var rate = rateForNight(current, roomType);
+        if (rate === null) {
+            resultEl.innerHTML = '<p class="calc-error">Отель не работает в выбранный период. Бронирование доступно с апреля по октябрь.</p>';
             return;
         }
-        total += rates[roomType][m];
+        total += rate + (extraBed ? 1000 : 0);
         current.setDate(current.getDate() + 1);
     }
 
     var nights = Math.round((checkout - checkin) / 86400000);
     var roomName = roomType === 2 ? '2х местный' : '3х местный';
+    var extraText = extraBed ? ' + доп. место' : '';
 
     resultEl.innerHTML =
         '<div class="calc-success">' +
-        '<p><strong>Номер:</strong> ' + roomName + '</p>' +
+        '<p><strong>Номер:</strong> ' + roomName + extraText + '</p>' +
         '<p><strong>Количество ночей:</strong> ' + nights + '</p>' +
         '<p class="calc-total"><strong>Итого: ' + total.toLocaleString('ru-RU') + ' ₽</strong></p>' +
         '</div>';
